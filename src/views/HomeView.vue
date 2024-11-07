@@ -4,7 +4,9 @@ import Wallet from "../components/Wallet.vue";
 </script>
 
 <template>
-  <main>
-    <Wallet></Wallet>
+  <main class="flex flex-col gap-3">
+    <Wallet provider="unisat"></Wallet>
+    <Wallet provider="xverse"></Wallet>
+    <Wallet provider="magic-eden"></Wallet>
   </main>
 </template>

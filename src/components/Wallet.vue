@@ -71,26 +71,31 @@ const signPSBT = async ()=>{
 
 
 </script>
-
 <template>
-  <div class="flex">
+    <div class="grid grid-cols-2 gap-4">
         <div class="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
             <div class="flex justify-between items-center mb-4 gap-9">
                 <h2 class="text-lg font-bold">{{props.provider}}</h2>
-                <button class="bg-blue-800 hover:bg-gray-700 px-4 py-2 rounded-md" @click="connect" >
+                <button class="bg-blue-800 hover:bg-gray-700 px-4 py-2 rounded-md" @click="connect">
                     Connect
                 </button>
             </div>
-          <div class="flex flex-col gap-3">
-            <button class="bg-red-800 hover:bg-gray-700 px-4 py-2 rounded-md" @click="inscribeBtn" :disabled="!isConnected">
-              Inscribe
-            </button>
-            <button class="bg-green-800 hover:bg-gray-700 px-4 py-2 rounded-md" @click="signPSBT" :disabled="!isConnected">
-              Sign PSBT
-            </button>
-          </div>
+            <div class="flex flex-col gap-3">
+                <button class="bg-red-800 hover:bg-gray-700 px-4 py-2 rounded-md" @click="inscribeBtn"
+                    :disabled="!isConnected">
+                    Inscribe
+                </button>
+                <button class="bg-green-800 hover:bg-gray-700 px-4 py-2 rounded-md" @click="signPSBT"
+                    :disabled="!isConnected">
+                    Sign PSBT
+                </button>
+            </div>
 
         </div>
-  {{ output }}
-  </div>
+        <div class="bg-gray-900 text-white p-4 rounded-lg overflow-auto max-h-96">
+            <pre class="whitespace-pre-wrap">
+      {{ output }}
+    </pre>
+        </div> 
+    </div>
 </template>

@@ -5,15 +5,19 @@ import {ref} from "vue";
 import {useOrdinalsBotService} from "@/services/ordinals.service";
 
 const props = defineProps<{ provider: ProviderType; }>();
+
 const {connectWallet, client}= useWalletService()
 const {inscribe ,createParentChildPsbt}= useOrdinalsBotService()
+
+
 const walletInfo = ref()
 const isConnected = ref(false)
-const order= ref()
-const output= ref()
+const order = ref()
+const output = ref()
+
+
 const connect = async ()=>{
   const response = await connectWallet(props.provider)
-  console.log(response.success)
   if(response.success){
     const{address, paymentAddress, paymentPublicKey, publicKey}= client.$store.value as any
     walletInfo.value= {address, paymentAddress, paymentPublicKey, publicKey}
@@ -21,7 +25,6 @@ const connect = async ()=>{
     isConnected.value = true
   }
 }
-
 
 const inscribeBtn = async ()=>{
   console.log("inscribe")
@@ -50,7 +53,6 @@ const inscribeBtn = async ()=>{
     ]
   })
   output.value = order.value
-
 }
 
 const signPSBT = async ()=>{
@@ -65,8 +67,9 @@ const signPSBT = async ()=>{
     "feeRate": 0
   })
   await client.signPsbt(psbtHex, true, true);
-
 }
+
+
 </script>
 
 <template>

@@ -4,8 +4,6 @@ import {
   SIGNET,
   type ProviderType,
 } from "@omnisat/lasereyes-core";
-import axios from "axios";
-import * as bitcoin from "bitcoinjs-lib"; // Assurez-vous d'avoir cette bibliothèque installée
 
 const client = new LaserEyesClient(createStores(), { network: SIGNET });
 
@@ -74,7 +72,6 @@ export function useWalletService() {
 
   /* ==== Helpers Private Functions ==== */
   const isValidBRCAddress = function isValidBRCAddress(address: string) {
-   // return true;
     return address.startsWith("tb");
   };
   return {

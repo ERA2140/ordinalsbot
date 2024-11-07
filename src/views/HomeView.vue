@@ -1,6 +1,5 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import Wallet from "../components/Wallet.vue";
-
 </script>
 
 <template>
